@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "theSpark <theespark.dev@gmail.com>",
+  "author": "Atlas <https://github.com/Atlas7005>",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
