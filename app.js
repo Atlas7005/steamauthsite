@@ -20,6 +20,14 @@ var accounts = [
 	}
 ];
 
+app.get("/public/style.css", (req, res, next) => {
+	res.sendFile(__dirname+"/public/style.css");
+});
+
+app.get("/style.css", (req, res, next) => {
+	res.sendFile(__dirname+"/public/style.css");
+});
+
 app.get("/:account", (req, res, next) => {
 	var params = req.params;
 	
@@ -59,6 +67,3 @@ io.on("connection", (socket) => {
 		}, 1500);
 	});
 });
-
-// TODO: Seperate style from index.html
-// Seperate the style element from index.html into it's own style.css

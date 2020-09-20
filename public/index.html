@@ -4,59 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Atlas's Accounts</title>
-        <style type="text/css">
-        	* {
-        		margin: 0;
-        		padding: 0;
-                color: white;
-        	}
-
-        	html {
-                font-family: Arial;
-        		background-color: #171717;
-                text-align: center;
-        	}
-
-        	body {
-        		height: 100%;
-        		width: 100%;
-        	}
-
-            ::selection {
-                background-color: red;
-            }
-
-        	.accounts {
-        		position: absolute;
-        		left: 50%;
-        		top: 10%;
-        		transform: translateX(-50%);
-        	}
-
-        	.account {
-        		width: 155px;
-        		height: 80px;
-        		background-color: #121212;
-        	}
-
-            .accounts > div:not(:first-child) {
-                margin-top: 30%;
-            }
-
-            .fa-clipboard:hover {
-                cursor: pointer;
-            }
-
-            .accountName {
-                background-color: #0A0A0A;
-            }
-
-            .accountCode {
-                margin-top: 10%;
-                font-size: 24px;
-                display: inline-block;
-            }
-        </style>
+        <link rel=stylesheet href="style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />

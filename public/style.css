@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+html {
+    font-family: Arial;
+    background-color: #171717;
+    text-align: center;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+::selection {
+    background-color: red;
+}
+
+.accounts {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+}
+
+.account {
+    width: 155px;
+    height: 80px;
+    background-color: #121212;
+}
+
+.accounts > div:not(:first-child) {
+    margin-top: 30%;
+}
+
+.fa-clipboard:hover {
+    cursor: pointer;
+}
+
+.accountName {
+    background-color: #0A0A0A;
+}
+
+.accountCode {
+    margin-top: 10%;
+    font-size: 24px;
+    display: inline-block;
+}
