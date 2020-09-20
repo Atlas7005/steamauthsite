@@ -29,30 +29,29 @@
         	.accounts {
         		position: absolute;
         		left: 50%;
-        		top: 15%;
+        		top: 10%;
         		transform: translateX(-50%);
         	}
 
         	.account {
-                margin-top: 30%;
         		width: 155px;
         		height: 80px;
         		background-color: #121212;
         	}
 
-            #atlas:hover {
+            .accounts > div:not(:first-child) {
+                margin-top: 30%;
+            }
+
+            .fa-clipboard:hover {
                 cursor: pointer;
             }
 
-            #spark:hover {
-                cursor: pointer;
-            }
-
-            .accountAtlasName, .accountSparkName {
+            .accountName {
                 background-color: #0A0A0A;
             }
 
-            .accountAtlasCode, .accountSparkCode {
+            .accountCode {
                 margin-top: 10%;
                 font-size: 24px;
                 display: inline-block;
@@ -64,41 +63,19 @@
     </head>
     <body>
     	<div class="accounts">
-    		<div class="account">
-    			<div class="accountAtlasName">lolAtlas</div>
-    			<p class="accountAtlasCode"></p><i class="fas fa-clipboard" data-fa-transform="up-4" id="atlas"></i>
-    		</div>
-    		<div class="account">
-    			<div class="accountSparkName">theeSpark</div>
-    			<p class="accountSparkCode"></p><i class="fas fa-clipboard" data-fa-transform="up-4" id="spark"></i>
-    		</div>
     	</div>
 
         <script type="text/javascript">
-            /**
-             * @todo Make accounts dynamic.
-             * @body Add accounts dynamically using the api.
-             */
         	const socket = io();
 
-            var atlas = document.querySelector(".accountAtlasCode");
-            var spark = document.querySelector(".accountSparkCode");
-            var atlasClip = document.querySelector("#atlas");
-            var sparkClip = document.querySelector("#spark");
-
-            atlasClip.onclick = () => {
-                copy(atlas.innerHTML);
-            }
-
-            sparkClip.onclick = () => {
-                copy(spark.innerHTML);
-            }
-
         	socket.on("code", (acc) => {
-                if(acc.user.toLowerCase() == "lolatlas") {
-                    atlas.innerHTML = acc.code;
-                } else if(acc.user.toLowerCase() == "theespark") {
-                    spark.innerHTML = acc.code;
+                var htmlStr = `<div class="account"><div class="accountName">${acc.user}</div><p class="accountCode">${acc.code}</p><i class="fas fa-clipboard" data-fa-transform="up-4" id="${acc.user}" onclick="copy('${acc.code}')"></i></div>`;
+
+                if(document.querySelector("#"+acc.user) != null) {
+                    document.querySelector("#"+acc.user).parentElement.parentElement.removeChild(document.querySelector("#"+acc.user).parentElement);
+                    $(".accounts").append(htmlStr);
+                } else {
+                    $(".accounts").append(htmlStr);
                 }
             });
 

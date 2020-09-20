@@ -12,11 +12,11 @@ function getCode(secret) {
 var accounts = [
 	{
 		name: "name1",
-		secret: "secret1" 
+		secret: "someauthsecret" 
 	},
 	{
 		name: "name2",
-		secret: "secret2"
+		secret: "someauthsecret2"
 	}
 ];
 
@@ -59,3 +59,8 @@ io.on("connection", (socket) => {
 		}, 1500);
 	});
 });
+
+/**
+ * @todo index.html - Seperate style.
+ * @body Transfer the <style> to own style.css file.
+ */
