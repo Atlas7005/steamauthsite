@@ -12,7 +12,7 @@ app.use(cors());
 
 function getCode(secret) {
 	return String(totp.getAuthCode(secret)) == null ? null : String(totp.getAuthCode(secret));
-}
+};
 
 var accounts = [
 	{
