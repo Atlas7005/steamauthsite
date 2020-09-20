@@ -5,11 +5,6 @@ var cors = require('cors');
 
 app.use(cors());
 
-/**
- * @todo index.html - Seperate style.
- * @body Transfer the <style> to own style.css file.
- */
-
 function getCode(secret) {
 	return String(totp.getAuthCode(secret)) == null ? null : String(totp.getAuthCode(secret));
 };
@@ -64,3 +59,6 @@ io.on("connection", (socket) => {
 		}, 1500);
 	});
 });
+
+// TODO: Seperate style from index.html
+// Seperate the style element from index.html into it's own style.css
