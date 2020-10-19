@@ -16,12 +16,11 @@
         	const socket = io();
 
         	socket.on("code", (acc) => {
-                var htmlStr = `<div class="account"><div class="accountName">${acc.user}</div><p class="accountCode">${acc.code}</p><i class="fas fa-clipboard" data-fa-transform="up-4" id="${acc.user}" onclick="copy('${acc.code}')"></i></div>`;
 
                 if(document.querySelector("#"+acc.user) != null) {
-                    document.querySelector("#"+acc.user).parentElement.parentElement.removeChild(document.querySelector("#"+acc.user).parentElement);
-                    $(".accounts").append(htmlStr);
+                    document.querySelector(`#${acc.user}`).parentElement.querySelector(".accountCode").innerHTML = acc.code;
                 } else {
+                	var htmlStr = `<div class="account"><div class="accountName">${acc.user}</div><p class="accountCode">${acc.code}</p><i class="fas fa-clipboard" data-fa-transform="up-4" id="${acc.user}" onclick="copy('${acc.code}')"></i></div>`;
                     $(".accounts").append(htmlStr);
                 }
             });
